@@ -4,18 +4,20 @@
 #include "ronin/timed_execution/defeat_job.as"
 
 TimedExecution timer;
+TimedExecution reset_timer;
 
 void Init(string level_name){
     timer.Add(VictoryJob(function(){
         level.SendMessage("displaytext \"You did it!\"");
 
-        timer.Add(OnInputPressedJob(0, "space", function(){
+        reset_timer.Add(OnInputPressedJob(0, "space", function(){
             level.SendMessage("cleartext");
             level.SendMessage("reset");
+            reset_timer.DeleteAll();
             return false;
         }));
         
-        timer.Add(OnInputPressedJob(0, "esc", function(){
+        reset_timer.Add(OnInputPressedJob(0, "esc", function(){
             level.SendMessage("go_to_main_menu");
             return false;
         }));
@@ -24,13 +26,14 @@ void Init(string level_name){
     timer.Add(DefeatJob(function(){
         level.SendMessage("displaytext \"You failed!\"");
 
-        timer.Add(OnInputPressedJob(0, "space", function(){
+        reset_timer.Add(OnInputPressedJob(0, "space", function(){
             level.SendMessage("cleartext");
             level.SendMessage("reset");
+            reset_timer.DeleteAll();
             return false;
         }));
         
-        timer.Add(OnInputPressedJob(0, "esc", function(){
+        reset_timer.Add(OnInputPressedJob(0, "esc", function(){
             level.SendMessage("go_to_main_menu");
             return false;
         }));
@@ -39,6 +42,7 @@ void Init(string level_name){
 
 void Update(){
     timer.Update();
+    reset_timer.Update();
 }
 
 bool HasFocus(){
