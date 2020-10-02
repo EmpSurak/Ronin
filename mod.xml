@@ -1,0 +1,26 @@
+<? xml version="1.0" ?>
+<Mod>
+    <Id>com-surak-ronin</Id> 
+    <Name>Ronin</Name> 
+
+    <Category>Level</Category>
+
+    <Thumbnail>Data/Images/ronin/thumb.jpg</Thumbnail>
+    <PreviewImage>Data/Images/ronin/thumb.jpg</PreviewImage>
+
+    <Description>Overgrowth 1 hour challenge</Description>
+    <Version>0.0.2</Version>
+    <Author>Surak</Author>
+    <Tag>Scripting</Tag>
+    <Tag>Level</Tag>
+    <Tag>1HourChallenge</Tag>
+
+    <SupportedVersion>*</SupportedVersion>
+    <NeedsRestart>false</NeedsRestart>
+    
+    <ModDependency>
+       <Id>com-surak-timed-execution</Id>
+       <Version>0.13.0</Version> 
+    </ModDependency>
+    <Level title="Ronin" thumbnail="UI/mainmenu/images/ronin.png">ronin.xml</Level>
+</Mod>
