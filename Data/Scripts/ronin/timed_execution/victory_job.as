@@ -22,13 +22,13 @@ class VictoryJob : BasicJobInterface {
     bool IsRepeating(){
         return true;
     }
-    
+
     bool NotAllEnemiesAreDead(){
         int num = GetNumCharacters();
         for(int i = 0; i < num; ++i){
             MovementObject@ char = ReadCharacter(i);
             
-            if (char.controlled){
+            if(char.controlled){
                 continue;
             }
             
@@ -36,7 +36,7 @@ class VictoryJob : BasicJobInterface {
                 return true;
             }
         }
-        
+
         return false;
     }
 }

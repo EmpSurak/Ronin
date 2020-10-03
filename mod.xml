@@ -9,7 +9,7 @@
     <PreviewImage>Data/Images/ronin/thumb.jpg</PreviewImage>
 
     <Description>Overgrowth 1 hour challenge</Description>
-    <Version>0.0.3</Version>
+    <Version>0.0.4</Version>
     <Author>Surak</Author>
     <Tag>Scripting</Tag>
     <Tag>Level</Tag>
@@ -17,10 +17,19 @@
 
     <SupportedVersion>*</SupportedVersion>
     <NeedsRestart>false</NeedsRestart>
-    
+
     <ModDependency>
        <Id>com-surak-timed-execution</Id>
        <Version>0.13.0</Version> 
     </ModDependency>
-    <Level title="Ronin" thumbnail="UI/mainmenu/images/ronin.png">ronin.xml</Level>
+
+    <ModDependency>
+       <Id>old-china-sum</Id>
+       <Version>3.4.4</Version> 
+    </ModDependency>
+
+    <Campaign title="Ronin" thumbnail="UI/mainmenu/images/ronin.png">
+      <Level title="1 Hour" thumbnail="UI/mainmenu/images/ronin_1.png">ronin_1.xml</Level>
+      <Level title="2 Hours" thumbnail="UI/mainmenu/images/ronin_2.png">ronin_2.xml</Level>
+    </Campaign>
 </Mod>

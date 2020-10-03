@@ -31,7 +31,7 @@
 <AmbientSounds>
     <Ambient path="Data/Sounds/ambient/amb_grassfield_loop" />
 </AmbientSounds>
-<Script>Data/Scripts/ronin.as</Script>
+<Script>ronin_1.as</Script>
 <LevelScriptParameters>
     <parameter name="Achievements" type="string" val="flawless, no_injuries, no_kills" />
     <parameter name="HDR Black point" type="float" val="0.005" />
