@@ -17,7 +17,7 @@ void Init(string level_name){
         }
         skip_jobs = true;
 
-        EndLevel("You did it!");
+        EndLevel("You did it! Press SPACE to restart.");
     }));
 
     timer.Add(DefeatJob(function(_char){
@@ -26,7 +26,7 @@ void Init(string level_name){
         }
         skip_jobs = true;
 
-        EndLevel("You failed!");
+        EndLevel("You failed! Press SPACE to restart.");
     }));
 }
 
