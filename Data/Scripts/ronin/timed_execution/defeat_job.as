@@ -1,4 +1,5 @@
 #include "timed_execution/basic_job_interface.as"
+#include "ronin_enemycontrol.as"
 
 funcdef void ON_DEFEAT_CALLBACK(MovementObject@);
 
@@ -42,8 +43,14 @@ class DefeatJob : BasicJobInterface {
                 continue;
             }
 
-            if(char.GetIntVar("goal") != 0 && char.GetIntVar("goal") != 7){
-                return true;
+            if(char.GetIntVar("goal") != _patrol && char.GetIntVar("goal") != _struggle){
+                if(char.GetIntVar("goal") == _investigate){
+                    if(char.GetIntVar("sub_goal") != _investigate_slow){
+                        return true;
+                    }
+                }else{
+                    return true;
+                }
             }
         }
 
