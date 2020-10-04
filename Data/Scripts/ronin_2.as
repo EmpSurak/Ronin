@@ -21,6 +21,12 @@ void Init(string level_name){
     }));
 
     timer.Add(DefeatJob(function(_char){
+        if(!_char.controlled){
+            int player_id = FindPlayerID();
+            MovementObject@ player_char = ReadCharacterID(player_id);
+            DebugDrawLine(player_char.position + vec3(0.0f, 0.9f, 0.0f), _char.position + vec3(0.0f, 0.9f, 0.0f), vec3(1.0f), _delete_on_update);
+        }
+
         if(skip_jobs){
             return;
         }
@@ -67,4 +73,14 @@ void EndLevel(string message){
     }));
 }
 
+int FindPlayerID(){
+    int num = GetNumCharacters();
+    for(int i = 0; i < num; ++i){
+        MovementObject@ char = ReadCharacter(i);
+        if(char.controlled){
+            return char.GetID();
+        }
+    }
+    return -1;
+}
 
