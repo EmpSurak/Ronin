@@ -37,13 +37,11 @@ class DefeatJob : BasicJobInterface {
             last_char = char.GetID();
 
             if(char.controlled){
-                if (char.GetIntVar("knocked_out") != _awake){
+                if(char.GetIntVar("knocked_out") != _awake){
                     return true;
                 }
                 continue;
-            } else if (char.GetIntVar("knocked_out") != _awake){
-                continue;
-            } else if (char.GetIntVar("tethered") == _TETHERED_REARCHOKED) {
+            } else if(char.GetIntVar("knocked_out") != _awake || char.GetIntVar("tethered") == _TETHERED_REARCHOKED){
                 continue;
             }
 
