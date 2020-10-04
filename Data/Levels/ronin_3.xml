@@ -31,7 +31,7 @@
     <RayToSun r0="-0.195462" r1="-0.966279" r2="0.167631" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="-41.7776" t1="58.4145" t2="84.0779" s0="1" s1="1" s2="1" q0="-0.138407" q1="0.594462" q2="-0.10479" q3="-0.785161" euler_x="0.348971" euler_y="-1.29609" euler_z="0" id="1">
+    <CameraObject t0="-55.4687" t1="56.6936" t2="82.9702" s0="1" s1="1" s2="1" q0="0.0764631" q1="-0.477254" q2="0.0417323" q3="0.874437" euler_x="0.174442" euler_y="-0.999201" euler_z="0" id="1">
         <parameters />
     </CameraObject>
     <ActorObject t0="-76.5384" t1="56.7898" t2="78.7716" s0="1" s1="1" s2="1" q0="0" q1="0.866025" q2="0" q3="0.5" euler_x="3.14159" euler_y="1.0472" euler_z="3.14159" id="2" type_file="Data/Objects/characters/cats/ouranian_hand_actor.xml" is_player="1">
@@ -315,7 +315,7 @@
     <PathPointObject t0="-68.4958" t1="47.1508" t2="90.4234" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="34" type_file="">
         <parameters>
             <parameter name="Type" type="string" val="Sleep" />
-            <parameter name="Wait" type="float" val="60" />
+            <parameter name="Wait" type="float" val="10" />
         </parameters>
         <Connections>
             <Connection id="35" />
@@ -443,51 +443,6 @@
             <Connection id="36" />
         </Connections>
     </PathPointObject>
-    <ActorObject t0="-79.0268" t1="46.1457" t2="29.1483" s0="1" s1="1" s2="1" q0="0" q1="0.965926" q2="0" q3="0.258819" euler_x="3.14159" euler_y="0.523599" euler_z="3.14159" id="47" type_file="Data/Objects/characters/cats/cat_actor.xml" is_player="0">
-        <parameters>
-            <parameter name="Aggression" type="float" val="0.5" />
-            <parameter name="Attack Damage" type="float" val="1" />
-            <parameter name="Attack Knockback" type="float" val="1" />
-            <parameter name="Attack Speed" type="float" val="1" />
-            <parameter name="Block Follow-up" type="float" val="0.5" />
-            <parameter name="Block Skill" type="float" val="0.5" />
-            <parameter name="Cannot Be Disarmed" type="int" val="0" />
-            <parameter name="Character Scale" type="float" val="1" />
-            <parameter name="Damage Resistance" type="float" val="1" />
-            <parameter name="Ear Size" type="float" val="1" />
-            <parameter name="Fall Damage Multiplier" type="float" val="1" />
-            <parameter name="Fat" type="float" val="0.5" />
-            <parameter name="Fear - Afraid At Health Level" type="float" val="0" />
-            <parameter name="Fear - Always Afraid On Sight" type="int" val="0" />
-            <parameter name="Fear - Causes Fear On Sight" type="int" val="0" />
-            <parameter name="Fear - Never Afraid On Sight" type="int" val="0" />
-            <parameter name="Focus FOV distance" type="float" val="100" />
-            <parameter name="Focus FOV horizontal" type="float" val="0.62834" />
-            <parameter name="Focus FOV vertical" type="float" val="0.62834" />
-            <parameter name="Ground Aggression" type="float" val="0.5" />
-            <parameter name="Knockout Shield" type="int" val="0" />
-            <parameter name="Left handed" type="int" val="0" />
-            <parameter name="Movement Speed" type="float" val="1" />
-            <parameter name="Muscle" type="float" val="0.5" />
-            <parameter name="No Look Around" type="int" val="0" />
-            <parameter name="Peripheral FOV distance" type="float" val="4" />
-            <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
-            <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
-            <parameter name="Species" type="string" val="cat" />
-            <parameter name="Static" type="int" val="0" />
-            <parameter name="Stick To Nav Mesh" type="int" val="0" />
-            <parameter name="Teams" type="string" val="cat" />
-            <parameter name="Throw Counter Probability" type="float" val="0.4" />
-            <parameter name="Throw Trainer" type="int" val="0" />
-            <parameter name="Weapon Catch Skill" type="float" val="1" />
-            <parameter name="Wearing Metal Armor" type="int" val="0" />
-        </parameters>
-        <Connections>
-            <Connection id="84" />
-        </Connections>
-        <ItemConnections />
-        <Palette />
-    </ActorObject>
     <EnvObject t0="-67.8495" t1="46.9093" t2="58.6275" s0="0.812494" s1="1" s2="0.999999" q0="0" q1="1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="48" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Architecture/Building_Wall_Long.xml">
         <parameters />
     </EnvObject>
