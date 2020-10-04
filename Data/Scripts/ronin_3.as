@@ -69,10 +69,12 @@ void RegisterKeys(){
     input_timer.Add(OnInputPressedJob(0, "space", function(){
         SetPaused(false);
         timer.Add(AfterInitJob(function(){
+            input_timer.DeleteAll();
             level.SendMessage("cleartext");
             level.SendMessage("reset");
-            skip_jobs = false;
-            input_timer.DeleteAll();
+            timer.Add(DelayedJob(1.0f, function(){
+                skip_jobs = false;
+            }));
         }));
         return false;
     }));
