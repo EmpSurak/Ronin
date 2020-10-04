@@ -24,7 +24,10 @@ void Init(string level_name){
         if(!_char.controlled){
             int player_id = FindPlayerID();
             MovementObject@ player_char = ReadCharacterID(player_id);
-            DebugDrawLine(player_char.position + vec3(0.0f, 0.9f, 0.0f), _char.position + vec3(0.0f, 0.9f, 0.0f), vec3(1.0f), _delete_on_update);
+            if(distance(player_char.position, _char.position) > 2.0f){
+                vec3 _offset(0.0f, 0.9f, 0.0f);
+                DebugDrawLine(player_char.position + _offset, _char.position + _offset, vec3(1.0f), _delete_on_update);
+            }
         }
 
         if(skip_jobs){
