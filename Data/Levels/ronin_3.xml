@@ -31,7 +31,7 @@
     <RayToSun r0="-0.195462" r1="-0.966279" r2="0.167631" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="-87.7669" t1="53.7398" t2="96.7194" s0="1" s1="1" s2="1" q0="0.22024" q1="0.322601" q2="-0.077456" q3="0.917291" euler_x="0.471276" euler_y="0.676357" euler_z="0" id="1">
+    <CameraObject t0="-88.8017" t1="56.4665" t2="106.065" s0="1" s1="1" s2="1" q0="0.30233" q1="0.247913" q2="-0.0817568" q3="0.916762" euler_x="0.637098" euler_y="0.528212" euler_z="0" id="1">
         <parameters />
     </CameraObject>
     <ActorObject t0="-76.5384" t1="56.7898" t2="78.7716" s0="1" s1="1" s2="1" q0="0" q1="0.866025" q2="0" q3="0.5" euler_x="3.14159" euler_y="1.0472" euler_z="3.14159" id="2" type_file="Data/Objects/characters/cats/ouranian_hand_actor.xml" is_player="1">
@@ -522,7 +522,7 @@
             <Connection id="57" />
         </Connections>
     </PathPointObject>
-    <PathPointObject t0="-83.0064" t1="47.5623" t2="87.5491" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="56" type_file="">
+    <PathPointObject t0="-83.0064" t1="47.5623" t2="86.1639" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="56" type_file="">
         <parameters>
             <parameter name="Type" type="string" val="Stand" />
             <parameter name="Wait" type="float" val="2" />
@@ -542,7 +542,7 @@
             <Connection id="56" />
         </Connections>
     </PathPointObject>
-    <PathPointObject t0="-86.791" t1="47.5623" t2="87.334" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="58" type_file="">
+    <PathPointObject t0="-86.791" t1="47.5623" t2="86.7042" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="58" type_file="">
         <parameters>
             <parameter name="Type" type="string" val="Stand" />
             <parameter name="Wait" type="float" val="0" />

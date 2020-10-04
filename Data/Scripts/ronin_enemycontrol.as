@@ -27,3 +27,9 @@ enum AISubGoal {
     _investigate_around,
     _investigate_attack
 };
+
+const int _TETHERED_FREE = 0;
+const int _TETHERED_REARCHOKE = 1;
+const int _TETHERED_REARCHOKED = 2;
+const int _TETHERED_DRAGBODY = 3;
+const int _TETHERED_DRAGGEDBODY = 4;

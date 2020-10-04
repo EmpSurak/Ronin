@@ -43,6 +43,8 @@ class DefeatJob : BasicJobInterface {
                 continue;
             } else if (char.GetIntVar("knocked_out") != _awake){
                 continue;
+            } else if (char.GetIntVar("tethered") == _TETHERED_REARCHOKED) {
+                continue;
             }
 
             if(char.GetIntVar("goal") != _patrol && char.GetIntVar("goal") != _struggle && char.GetIntVar("goal") != _get_weapon){
