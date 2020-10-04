@@ -43,7 +43,7 @@ class DefeatJob : BasicJobInterface {
                 continue;
             }
 
-            if(char.GetIntVar("goal") != _patrol && char.GetIntVar("goal") != _struggle){
+            if(char.GetIntVar("goal") != _patrol && char.GetIntVar("goal") != _struggle && char.GetIntVar("goal") != _get_weapon){
                 if(char.GetIntVar("goal") == _investigate){
                     if(char.GetIntVar("sub_goal") != _investigate_slow){
                         return true;
