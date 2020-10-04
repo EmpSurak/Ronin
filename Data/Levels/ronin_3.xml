@@ -31,7 +31,7 @@
     <RayToSun r0="-0.195462" r1="-0.966279" r2="0.167631" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="-88.8017" t1="56.4665" t2="106.065" s0="1" s1="1" s2="1" q0="0.30233" q1="0.247913" q2="-0.0817568" q3="0.916762" euler_x="0.637098" euler_y="0.528212" euler_z="0" id="1">
+    <CameraObject t0="-68.3359" t1="56.3461" t2="101.374" s0="1" s1="1" s2="1" q0="0.410352" q1="-0.247329" q2="0.116663" q3="0.869959" euler_x="0.88149" euler_y="-0.553981" euler_z="0" id="1">
         <parameters />
     </CameraObject>
     <ActorObject t0="-76.5384" t1="56.7898" t2="78.7716" s0="1" s1="1" s2="1" q0="0" q1="0.866025" q2="0" q3="0.5" euler_x="3.14159" euler_y="1.0472" euler_z="3.14159" id="2" type_file="Data/Objects/characters/cats/ouranian_hand_actor.xml" is_player="1">
@@ -315,7 +315,7 @@
     <PathPointObject t0="-68.4958" t1="47.1508" t2="90.4234" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="34" type_file="">
         <parameters>
             <parameter name="Type" type="string" val="Sleep" />
-            <parameter name="Wait" type="float" val="10" />
+            <parameter name="Wait" type="float" val="30" />
         </parameters>
         <Connections>
             <Connection id="35" />
@@ -485,7 +485,7 @@
             <parameter name="Fear - Always Afraid On Sight" type="int" val="0" />
             <parameter name="Fear - Causes Fear On Sight" type="int" val="0" />
             <parameter name="Fear - Never Afraid On Sight" type="int" val="0" />
-            <parameter name="Focus FOV distance" type="float" val="77.401" />
+            <parameter name="Focus FOV distance" type="float" val="96.045" />
             <parameter name="Focus FOV horizontal" type="float" val="0.494994" />
             <parameter name="Focus FOV vertical" type="float" val="0.494994" />
             <parameter name="Ground Aggression" type="float" val="0.69492" />
@@ -512,14 +512,14 @@
         <ItemConnections />
         <Palette />
     </ActorObject>
-    <PathPointObject t0="-86.791" t1="47.5623" t2="46.4831" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="55" type_file="">
+    <PathPointObject t0="-87.1728" t1="47.5623" t2="40.5946" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="55" type_file="">
         <parameters>
             <parameter name="Type" type="string" val="Stand" />
             <parameter name="Wait" type="float" val="0" />
         </parameters>
         <Connections>
             <Connection id="58" />
-            <Connection id="57" />
+            <Connection id="150" />
         </Connections>
     </PathPointObject>
     <PathPointObject t0="-83.0064" t1="47.5623" t2="86.1639" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="56" type_file="">
@@ -532,13 +532,13 @@
             <Connection id="58" />
         </Connections>
     </PathPointObject>
-    <PathPointObject t0="-83.0064" t1="47.5623" t2="46.4831" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="57" type_file="">
+    <PathPointObject t0="-83.0064" t1="47.5623" t2="41.5254" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="57" type_file="">
         <parameters>
             <parameter name="Type" type="string" val="Stand" />
-            <parameter name="Wait" type="float" val="5" />
+            <parameter name="Wait" type="float" val="1" />
         </parameters>
         <Connections>
-            <Connection id="55" />
+            <Connection id="148" />
             <Connection id="56" />
         </Connections>
     </PathPointObject>
@@ -1013,6 +1013,36 @@
             <Color label="Pants" channel="3" red="0.126073" green="0.27451" blue="0.0538254" />
         </Palette>
     </ActorObject>
+    <PathPointObject t0="-79.1938" t1="46.5403" t2="40.2584" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="148" type_file="">
+        <parameters>
+            <parameter name="Type" type="string" val="Stand" />
+            <parameter name="Wait" type="float" val="0" />
+        </parameters>
+        <Connections>
+            <Connection id="149" />
+            <Connection id="57" />
+        </Connections>
+    </PathPointObject>
+    <PathPointObject t0="-79.1938" t1="46.5403" t2="37.4123" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="149" type_file="">
+        <parameters>
+            <parameter name="Type" type="string" val="Stand" />
+            <parameter name="Wait" type="float" val="0" />
+        </parameters>
+        <Connections>
+            <Connection id="150" />
+            <Connection id="148" />
+        </Connections>
+    </PathPointObject>
+    <PathPointObject t0="-89.9126" t1="46.5403" t2="37.4123" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="150" type_file="">
+        <parameters>
+            <parameter name="Type" type="string" val="Stand" />
+            <parameter name="Wait" type="float" val="0" />
+        </parameters>
+        <Connections>
+            <Connection id="55" />
+            <Connection id="149" />
+        </Connections>
+    </PathPointObject>
     <ItemObject t0="-67.4764" t1="45.8348" t2="56.8432" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="151" type_file="Data/Items/MainGauche.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </ItemObject>
