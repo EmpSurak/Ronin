@@ -4,7 +4,7 @@
 #include "timed_execution/on_input_pressed_job.as"
 #include "ronin/timed_execution/victory_job.as"
 #include "ronin/timed_execution/defeat_job.as"
-#include "ronin_enemycontrol.as"
+#include "ronin/constants.as"
 
 TimedExecution timer;
 TimedExecution input_timer;
@@ -18,7 +18,7 @@ void Init(string level_name){
         }
         skip_jobs = true;
 
-        EndLevel("You did it! Press SPACE to restart.");
+        EndLevel("You did it!");
     }));
 
     timer.Add(DefeatJob(function(_char){
@@ -38,18 +38,18 @@ void Init(string level_name){
         skip_jobs = true;
 
         if(player_char.GetIntVar("knocked_out") != _awake){
-            EndLevel("You failed, you are dead! Press SPACE to restart.");
+            EndLevel("You failed, you are dead!");
         }else if(_char.GetIntVar("goal") == _investigate){
             switch(_char.GetIntVar("sub_goal")){
                 case _investigate_body:
-                    EndLevel("You failed, body was found! Press SPACE to restart.");
+                    EndLevel("You failed, body was found!");
                     break;
                 default:
-                    EndLevel("You failed, investigation started! Press SPACE to restart.");
+                    EndLevel("You failed, investigation started!");
                     break;
             }
         }else{
-            EndLevel("You failed! Press SPACE to restart.");
+            EndLevel("You failed!");
         }
     }));
 }
@@ -86,7 +86,8 @@ void RegisterKeys(){
 }
 
 void EndLevel(string message){
-    level.SendMessage("displaytext \"" + message + "\"");
+    string _controls = "Press SPACE to restart or ESCAPE to quit.";
+    level.SendMessage("displaytext \"" + message + "\n" + _controls + "\"");
     timer.Add(DelayedJob(1.5f, function(){
         SetPaused(true);
         RegisterKeys();
@@ -103,4 +104,3 @@ int FindPlayerID(){
     }
     return -1;
 }
-

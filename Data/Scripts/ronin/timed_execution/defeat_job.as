@@ -1,5 +1,5 @@
 #include "timed_execution/basic_job_interface.as"
-#include "ronin_enemycontrol.as"
+#include "ronin/constants.as"
 
 funcdef void ON_DEFEAT_CALLBACK(MovementObject@);
 
@@ -23,14 +23,6 @@ class DefeatJob : BasicJobInterface {
     }
 
     bool IsExpired(){
-        return IsDefeated();
-    }
-
-    bool IsRepeating(){
-        return true;
-    }
-
-    bool IsDefeated(){
         int num = GetNumCharacters();
         for(int i = 0; i < num; ++i){
             MovementObject@ char = ReadCharacter(i);
@@ -41,7 +33,7 @@ class DefeatJob : BasicJobInterface {
                     return true;
                 }
                 continue;
-            } else if(char.GetIntVar("knocked_out") != _awake || char.GetIntVar("tethered") == _TETHERED_REARCHOKED){
+            }else if(char.GetIntVar("knocked_out") != _awake || char.GetIntVar("tethered") == _TETHERED_REARCHOKED){
                 continue;
             }
 
@@ -57,5 +49,9 @@ class DefeatJob : BasicJobInterface {
         }
 
         return false;
+    }
+
+    bool IsRepeating(){
+        return true;
     }
 }
