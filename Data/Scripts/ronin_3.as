@@ -10,6 +10,7 @@ TimedExecution timer;
 TimedExecution input_timer;
 
 bool skip_jobs = false;
+float current_time = 0.0f;
 
 void Init(string level_name){
     timer.Add(VictoryJob(function(){
@@ -18,7 +19,7 @@ void Init(string level_name){
         }
         skip_jobs = true;
 
-        EndLevel("You did it!");
+        EndLevel("You did it! Your time: " + GetTime(int(current_time)));
     }));
 
     timer.Add(DefeatJob(function(_char){
@@ -55,6 +56,7 @@ void Init(string level_name){
 }
 
 void Update(int is_updated){
+    current_time += time_step;
     timer.Update();
     input_timer.Update();
 }
@@ -72,6 +74,7 @@ void RegisterKeys(){
             input_timer.DeleteAll();
             level.SendMessage("cleartext");
             level.SendMessage("reset");
+            current_time = 0.0f;
             timer.Add(DelayedJob(1.0f, function(){
                 skip_jobs = false;
             }));
@@ -103,4 +106,16 @@ int FindPlayerID(){
         }
     }
     return -1;
+}
+
+string GetTime(int seconds){
+    int numSeconds = seconds % 60;
+    int numMinutes = seconds / 60;
+    if(numMinutes == 0){
+        return numSeconds + " seconds";
+    }else if(numMinutes == 1){
+        return numMinutes + " minute and " + numSeconds + " seconds";
+    }else{
+        return numMinutes + " minutes and " + numSeconds + " seconds";
+    }
 }

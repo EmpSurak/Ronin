@@ -9,7 +9,7 @@
 </LoadingScreen>
 <OutOfDate NavMesh="true" NavMeshParamHash="-1674835251" />
 <AmbientSounds />
-<Script>ronin_2.as</Script>
+<Script>ronin_3.as</Script>
 <LevelScriptParameters>
     <parameter name="Achievements" type="string" val="flawless, no_injuries, no_kills" />
     <parameter name="Fog amount" type="float" val="1.0736" />
