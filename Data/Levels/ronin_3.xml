@@ -31,7 +31,7 @@
     <RayToSun r0="-0.195462" r1="-0.966279" r2="0.167631" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="-68.3359" t1="56.3461" t2="101.374" s0="1" s1="1" s2="1" q0="0.410352" q1="-0.247329" q2="0.116663" q3="0.869959" euler_x="0.88149" euler_y="-0.553981" euler_z="0" id="1">
+    <CameraObject t0="-78.7429" t1="47.5441" t2="51.6307" s0="1" s1="1" s2="1" q0="-0.0861551" q1="0.153466" q2="-0.0134328" q3="-0.984299" euler_x="0.174614" euler_y="-0.309337" euler_z="0" id="1">
         <parameters />
     </CameraObject>
     <ActorObject t0="-76.5384" t1="56.7898" t2="78.7716" s0="1" s1="1" s2="1" q0="0" q1="0.866025" q2="0" q3="0.5" euler_x="3.14159" euler_y="1.0472" euler_z="3.14159" id="2" type_file="Data/Objects/characters/cats/ouranian_hand_actor.xml" is_player="1">
@@ -1170,6 +1170,12 @@
         <ItemConnections />
         <Palette />
     </ActorObject>
+    <EnvObject t0="-78.7758" t1="44.9911" t2="66.1621" s0="2.56613" s1="2.56613" s2="2.56613" q0="0.0375855" q1="-0.0410498" q2="-0.307671" q3="0.949864" euler_x="0.0969595" euler_y="-0.0548832" euler_z="-0.629155" id="176" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Cliffs/CliffRock_04_Detail.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-75.1562" t1="45.6744" t2="63.8415" s0="2.56613" s1="2.56613" s2="2.56613" q0="-0.0966937" q1="0.085955" q2="-0.830854" q3="0.541243" euler_x="-0.250687" euler_y="-0.0676833" euler_z="-1.9783" id="177" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Cliffs/CliffRock_04_Detail.xml">
+        <parameters />
+    </EnvObject>
     <EnvObject t0="-84.3837" t1="56.9157" t2="22.1259" s0="2.00106" s1="2.00106" s2="2.00106" q0="0" q1="-0.000363678" q2="0" q3="1" euler_x="0" euler_y="-0.000727356" euler_z="0" id="179" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/bottle.xml">
         <parameters />
     </EnvObject>
@@ -1266,13 +1272,15 @@
     <EnvObject t0="-72.4839" t1="60.086" t2="78.7357" s0="4.64401" s1="4.64401" s2="4.64401" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="188" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Props/BuddaStatue.xml">
         <parameters />
     </EnvObject>
+    <EnvObject t0="-78.8925" t1="45.6016" t2="61.2236" s0="2.10106" s1="2.10106" s2="2.10106" q0="0.30753" q1="-0.034355" q2="-0.349699" q3="0.884283" euler_x="0.61236" euler_y="0.154946" euler_z="-0.704105" id="189" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Cliffs/CliffRock_01_Detail.xml">
+        <parameters />
+    </EnvObject>
 </ActorObjects>
 <RecentItems>
     <SpawnerItem display_name="Cliff Rock 02 Detail" path="Data/Objects/Environment/Cliffs/CliffRock_02_Detail.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/Cliff_Rock_02.png" />
     <SpawnerItem display_name="Cliff Rock 03" path="Data/Objects/Environment/Cliffs/CliffRock_03.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/Cliff_Rock_03.png" />
     <SpawnerItem display_name="Cliff Rock Trim 02 Lichen" path="Data/Objects/Environment/Cliffs/CliffTrim_02_lichen.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/Cliff_Trim_02.png" />
     <SpawnerItem display_name="Whale Man" path="Data/Custom/OpethRockr55/Objects/Environment/Statues/WhaleManStatue.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/Whaleman.png" />
-    <SpawnerItem display_name="Cliff Rock 01 Detail" path="Data/Objects/Environment/Cliffs/CliffRock_01_Detail.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/Cliff_Rock_01.png" />
     <SpawnerItem display_name="Signs" path="Data/Prefabs/Signs.xml" thumbnail_path="Data/UI/spawner/thumbs/Signs.png" />
     <SpawnerItem display_name="Tree Broken Bleached Bough" path="Data/Objects/Plants/Trees/temperate/broken_branch_bleached.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/broken_branch_bleached.png" />
     <SpawnerItem display_name="Tree Evergreen Roots Bleached" path="Data/Objects/Plants/Trees/temperate/evergreen_roots_bleached.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/evergreen_roots_bleached.png" />
@@ -1298,4 +1306,6 @@
     <SpawnerItem display_name="Female Cat" path="Data/Objects/characters/cats/female_cat_actor.xml" thumbnail_path="Data/UI/spawner/thumbs/Character/female_cat_actor.png" />
     <SpawnerItem display_name="BuddaStatue.xml" path="Data/Props/BuddaStatue.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="Path Point" path="Data/Objects/pathpoint/pathpoint.xml" thumbnail_path="Data/UI/spawner/thumbs/Utility/pathpoint.png" />
+    <SpawnerItem display_name="Cliff Rock 01 Detail" path="Data/Objects/Environment/Cliffs/CliffRock_01_Detail.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/Cliff_Rock_01.png" />
+    <SpawnerItem display_name="Cliff Rock 04 Detail" path="Data/Objects/Environment/Cliffs/CliffRock_04_Detail.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/Cliff_Rock_04.png" />
 </RecentItems>
