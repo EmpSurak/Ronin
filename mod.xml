@@ -9,7 +9,7 @@
     <PreviewImage>Data/Images/ronin/thumb.jpg</PreviewImage>
 
     <Description>Overgrowth 1 hour challenge</Description>
-    <Version>0.0.21</Version>
+    <Version>0.0.22</Version>
     <Author>Surak</Author>
     <Tag>Scripting</Tag>
     <Tag>Level</Tag>
@@ -29,9 +29,8 @@
     </ModDependency>
 
     <Campaign title="Ronin" thumbnail="UI/mainmenu/images/ronin.png">
-      <Level title="1 Hour" thumbnail="UI/mainmenu/images/ronin_1.png">ronin_1.xml</Level>
-      <Level title="2 Hours" thumbnail="UI/mainmenu/images/ronin_2.png">ronin_2.xml</Level>
-      <Level title="3 Hours" thumbnail="UI/mainmenu/images/ronin_3.png">ronin_3.xml</Level>
-      <Level title="4 Hours" thumbnail="UI/mainmenu/images/ronin_4.png">ronin_4.xml</Level>
+      <Level title="Little Buddha" thumbnail="UI/mainmenu/images/ronin_2.png">ronin_2.xml</Level>
+      <Level title="Big Buddha" thumbnail="UI/mainmenu/images/ronin_3.png">ronin_3.xml</Level>
+      <Level title="Golden Palace" thumbnail="UI/mainmenu/images/ronin_4.png">ronin_4.xml</Level>
     </Campaign>
 </Mod>
