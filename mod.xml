@@ -9,7 +9,7 @@
     <PreviewImage>Data/Images/ronin/thumb.jpg</PreviewImage>
 
     <Description>Overgrowth 1 hour challenge</Description>
-    <Version>0.0.23</Version>
+    <Version>0.0.24</Version>
     <Author>Surak</Author>
     <Tag>Scripting</Tag>
     <Tag>Level</Tag>
@@ -32,5 +32,6 @@
       <Level title="Little Buddha" thumbnail="UI/mainmenu/images/ronin_2.png">ronin_2.xml</Level>
       <Level title="Big Buddha" thumbnail="UI/mainmenu/images/ronin_3.png">ronin_3.xml</Level>
       <Level title="Golden Palace" thumbnail="UI/mainmenu/images/ronin_4.png">ronin_4.xml</Level>
+      <Level title="Mountain Arena" thumbnail="UI/mainmenu/images/ronin_5.png">ronin_5.xml</Level>
     </Campaign>
 </Mod>
