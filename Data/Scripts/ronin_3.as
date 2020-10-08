@@ -20,7 +20,7 @@ void Init(string level_name){
         }
         skip_jobs = true;
 
-        EndLevel("You did it! Your time: " + GetTime(int(current_time)));
+        EndLevel("You did it! Your time: " + GetTime(int(current_time)), 5.0f);
     }));
 
     timer.Add(DefeatJob(function(_char){
@@ -93,10 +93,10 @@ void RegisterKeys(){
     }));
 }
 
-void EndLevel(string message){
+void EndLevel(string message, float delay = 1.5f){
     string _controls = "Press SPACE to restart or ESCAPE to quit.";
     level.SendMessage("displaytext \"" + message + "\n" + _controls + "\"");
-    timer.Add(DelayedJob(1.5f, function(){
+    timer.Add(DelayedJob(delay, function(){
         SetPaused(true);
         RegisterKeys();
     }));
