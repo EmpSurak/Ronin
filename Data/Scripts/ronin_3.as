@@ -5,6 +5,7 @@
 #include "ronin/timed_execution/victory_job.as"
 #include "ronin/timed_execution/defeat_job.as"
 #include "ronin/constants.as"
+#include "ronin/end_screen.as"
 
 TimedExecution timer;
 TimedExecution input_timer;
@@ -13,6 +14,8 @@ bool skip_jobs = false;
 float current_time = 0.0f;
 const vec3 _offset(0.0f, 0.3f, 0.0f);
 
+EndScreen end_screen;
+
 void Init(string level_name){
     timer.Add(VictoryJob(function(){
         if(skip_jobs){
@@ -20,7 +23,7 @@ void Init(string level_name){
         }
         skip_jobs = true;
 
-        EndLevel("You did it! Your time: " + GetTime(int(current_time)), 5.0f);
+        EndLevel("You did it, boss!", 5.0f);
     }));
 
     timer.Add(DefeatJob(function(_char){
@@ -64,20 +67,23 @@ void Update(int is_updated){
     current_time += time_step;
     timer.Update();
     input_timer.Update();
+    end_screen.Update();
 }
 
 bool HasFocus(){
     return false;
 }
 
-void DrawGUI(){}
+void DrawGUI(){
+    end_screen.Render();
+}
 
 void RegisterKeys(){
     input_timer.Add(OnInputPressedJob(0, "space", function(){
         SetPaused(false);
         timer.Add(AfterInitJob(function(){
             input_timer.DeleteAll();
-            level.SendMessage("cleartext");
+            end_screen.Reset();
             level.SendMessage("reset");
             current_time = 0.0f;
             timer.Add(DelayedJob(1.0f, function(){
@@ -94,9 +100,10 @@ void RegisterKeys(){
 }
 
 void EndLevel(string message, float delay = 1.5f){
-    string _controls = "Press SPACE to restart or ESCAPE to quit.";
-    level.SendMessage("displaytext \"" + message + "\n" + _controls + "\"");
+    end_screen.ShowMessage(message, current_time);
+
     timer.Add(DelayedJob(delay, function(){
+        end_screen.ShowControls();    
         SetPaused(true);
         RegisterKeys();
     }));
@@ -111,16 +118,4 @@ int FindPlayerID(){
         }
     }
     return -1;
-}
-
-string GetTime(int seconds){
-    int numSeconds = seconds % 60;
-    int numMinutes = seconds / 60;
-    if(numMinutes == 0){
-        return numSeconds + " seconds";
-    }else if(numMinutes == 1){
-        return numMinutes + " minute and " + numSeconds + " seconds";
-    }else{
-        return numMinutes + " minutes and " + numSeconds + " seconds";
-    }
 }
