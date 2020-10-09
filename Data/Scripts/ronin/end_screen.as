@@ -9,12 +9,10 @@ enum EndScreenState {
 };
 
 const int _text_size = 60;
-const int _challenge_text_size = 120;
 const vec4 _text_color = vec4(0.8, 0.8, 0.8, 1.0);
 const string _text_font = "OpenSans-Regular";
 
 class EndScreen : AHGUI::GUI {
-    private bool show_controls = false;
     private float time = 0;
     private string message = "";
 
@@ -25,7 +23,7 @@ class EndScreen : AHGUI::GUI {
         super();
     }
 
-    void handleStateChange(){
+    void HandleStateChange(){
         if(last_state == current_state){
             return;
         }
@@ -44,40 +42,39 @@ class EndScreen : AHGUI::GUI {
     }
 
     private void ShowEndScreenUI(){
-        AHGUI::Divider@ mainPane = root.addDivider(DDTop, DOVertical, ivec2(2562, 1440));
-        mainPane.setHorizontalAlignment(BALeft);
-        AHGUI::Divider@ title = mainPane.addDivider(DDTop, DOHorizontal, ivec2(AH_UNDEFINEDSIZE, 350));
-        DisplayText(title, DDCenter, message, _text_size, _text_color, true);
+        AHGUI::Divider@ main_pane = root.addDivider(DDTop, DOVertical, ivec2(2562, 1440));
+        main_pane.setHorizontalAlignment(BALeft);
+        AHGUI::Divider@ title = main_pane.addDivider(DDTop, DOHorizontal, ivec2(AH_UNDEFINEDSIZE, 350));
+        DisplayText(title, DDCenter, message, _text_color, true);
 
-        AHGUI::Divider@ scorePane = mainPane.addDivider(DDTop, DOVertical, ivec2(AH_UNDEFINEDSIZE, 300));
-        DisplayText(scorePane, DDTop, "Your time: " + GetTime(int(time)), _text_size, _text_color, true);
+        AHGUI::Divider@ score_pane = main_pane.addDivider(DDTop, DOVertical, ivec2(AH_UNDEFINEDSIZE, 300));
+        DisplayText(score_pane, DDTop, "Your time: " + GetTime(int(time)), _text_color, true);
 
-        if(show_controls){
-            AHGUI::Divider@ footer = mainPane.addDivider(DDBottom, DOHorizontal, ivec2(AH_UNDEFINEDSIZE, 300));
-            DisplayText(footer, DDCenter, "Press escape to return to menu or space to restart", _text_size, _text_color, true);
+        if(current_state == agsEndScreen){
+            AHGUI::Divider@ footer = main_pane.addDivider(DDBottom, DOHorizontal, ivec2(AH_UNDEFINEDSIZE, 300));
+            DisplayText(footer, DDCenter, "Press escape to return to menu or space to restart", _text_color, true);
         }
     }
 
     private string GetTime(int seconds){
-        int numSeconds = seconds % 60;
-        int numMinutes = seconds / 60;
-        if(numMinutes == 0){
-            return numSeconds + " seconds";
-        }else if(numMinutes == 1){
-            return numMinutes + " minute and " + numSeconds + " seconds";
+        int num_seconds = seconds % 60;
+        int num_minutes = seconds / 60;
+        if(num_minutes == 0){
+            return num_seconds + " seconds";
+        }else if(num_minutes == 1){
+            return num_minutes + " minute and " + num_seconds + " seconds";
         }else{
-            return numMinutes + " minutes and " + numSeconds + " seconds";
+            return num_minutes + " minutes and " + num_seconds + " seconds";
         }
     }
 
     void Update() {
-        handleStateChange();
+        HandleStateChange();
         AHGUI::GUI::update();
     }
 
     void Reset(){
         current_state = agsFighting;
-        show_controls = false;
     }
 
     void Render() {
@@ -85,14 +82,13 @@ class EndScreen : AHGUI::GUI {
        AHGUI::GUI::render();
     }
 
-    private void DisplayText(AHGUI::Divider@ div, DividerDirection dd, string text, int _text_size, vec4 color, bool shadowed, string textName = "foo"){
-        AHGUI::Text singleSentence(text, _text_font, _text_size, color.x, color.y, color.z, color.a);
-        singleSentence.setName(textName);
-        singleSentence.setShadowed(shadowed);
-        div.addElement(singleSentence, dd);
-        singleSentence.setBorderSize(1);
-        singleSentence.setBorderColor(1.0, 1.0, 1.0, 1.0);
-        singleSentence.showBorder(false);
+    private void DisplayText(AHGUI::Divider@ div, DividerDirection dd, string text, vec4 color, bool shadowed){
+        AHGUI::Text single_sentence(text, _text_font, _text_size, color.x, color.y, color.z, color.a);
+        single_sentence.setShadowed(shadowed);
+        div.addElement(single_sentence, dd);
+        single_sentence.setBorderSize(1);
+        single_sentence.setBorderColor(1.0, 1.0, 1.0, 1.0);
+        single_sentence.showBorder(false);
     }
 
     void ShowMessage(string _message, float _time){
@@ -102,7 +98,6 @@ class EndScreen : AHGUI::GUI {
     }
 
     void ShowControls(){
-        show_controls = true;
         current_state = agsEndScreen;
     }
 }
