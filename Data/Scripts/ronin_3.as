@@ -9,12 +9,11 @@
 
 TimedExecution timer;
 TimedExecution input_timer;
+EndScreen end_screen;
 
 bool skip_jobs = false;
 float current_time = 0.0f;
-const vec3 _offset(0.0f, 0.3f, 0.0f);
-
-EndScreen end_screen;
+const vec3 _line_offset(0.0f, 0.3f, 0.0f);
 
 void Init(string level_name){
     timer.Add(VictoryJob(function(){
@@ -33,8 +32,8 @@ void Init(string level_name){
         if(!_char.controlled){
             if(distance(player_char.position, _char.position) > 2.0f){
                 DebugDrawLine(
-                    player_char.rigged_object().skeleton().GetCenterOfMass() + _offset,
-                    _char.rigged_object().skeleton().GetCenterOfMass() + _offset,
+                    player_char.rigged_object().skeleton().GetCenterOfMass() + _line_offset,
+                    _char.rigged_object().skeleton().GetCenterOfMass() + _line_offset,
                     vec3(1.0f),
                     _delete_on_update
                 );

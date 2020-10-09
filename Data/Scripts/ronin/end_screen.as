@@ -11,11 +11,12 @@ enum EndScreenState {
 const int _text_size = 60;
 const int _challenge_text_size = 120;
 const vec4 _text_color = vec4(0.8, 0.8, 0.8, 1.0);
+const string _text_font = "OpenSans-Regular";
 
 class EndScreen : AHGUI::GUI {
     private bool show_controls = false;
     private float time = 0;
-    string message = "default message";
+    private string message = "";
 
     private EndScreenState current_state = agsFighting;
     private EndScreenState last_state = agsInvalidState;
@@ -42,22 +43,22 @@ class EndScreen : AHGUI::GUI {
         }
     }
 
-    void ShowEndScreenUI(){
-        AHGUI::Divider@ mainPane = root.addDivider(DDTop, DOVertical, ivec2( 2562, 1440 ));
+    private void ShowEndScreenUI(){
+        AHGUI::Divider@ mainPane = root.addDivider(DDTop, DOVertical, ivec2(2562, 1440));
         mainPane.setHorizontalAlignment(BALeft);
-        AHGUI::Divider@ title1 = mainPane.addDivider( DDTop, DOHorizontal, ivec2( AH_UNDEFINEDSIZE, 350 ));
-        DisplayText(title1, DDCenter, message, _text_size, _text_color, true);
+        AHGUI::Divider@ title = mainPane.addDivider(DDTop, DOHorizontal, ivec2(AH_UNDEFINEDSIZE, 350));
+        DisplayText(title, DDCenter, message, _text_size, _text_color, true);
 
-        AHGUI::Divider@ scorePane = mainPane.addDivider( DDTop, DOVertical, ivec2( AH_UNDEFINEDSIZE, 300 ));
+        AHGUI::Divider@ scorePane = mainPane.addDivider(DDTop, DOVertical, ivec2(AH_UNDEFINEDSIZE, 300));
         DisplayText(scorePane, DDTop, "Your time: " + GetTime(int(time)), _text_size, _text_color, true);
 
         if(show_controls){
-            AHGUI::Divider@ footer = mainPane.addDivider( DDBottom, DOHorizontal, ivec2( AH_UNDEFINEDSIZE, 300 ));
+            AHGUI::Divider@ footer = mainPane.addDivider(DDBottom, DOHorizontal, ivec2(AH_UNDEFINEDSIZE, 300));
             DisplayText(footer, DDCenter, "Press escape to return to menu or space to restart", _text_size, _text_color, true);
         }
     }
 
-    string GetTime(int seconds){
+    private string GetTime(int seconds){
         int numSeconds = seconds % 60;
         int numMinutes = seconds / 60;
         if(numMinutes == 0){
@@ -84,8 +85,8 @@ class EndScreen : AHGUI::GUI {
        AHGUI::GUI::render();
     }
 
-    void DisplayText(AHGUI::Divider@ div, DividerDirection dd, string text, int _text_size, vec4 color, bool shadowed, string textName = "foo"){
-        AHGUI::Text singleSentence(text, "OpenSans-Regular", _text_size, color.x, color.y, color.z, color.a);
+    private void DisplayText(AHGUI::Divider@ div, DividerDirection dd, string text, int _text_size, vec4 color, bool shadowed, string textName = "foo"){
+        AHGUI::Text singleSentence(text, _text_font, _text_size, color.x, color.y, color.z, color.a);
         singleSentence.setName(textName);
         singleSentence.setShadowed(shadowed);
         div.addElement(singleSentence, dd);
