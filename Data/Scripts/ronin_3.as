@@ -2,6 +2,7 @@
 #include "timed_execution/after_init_job.as"
 #include "timed_execution/delayed_job.as"
 #include "timed_execution/on_input_pressed_job.as"
+#include "timed_execution/level_event_job.as"
 #include "ronin/timed_execution/victory_job.as"
 #include "ronin/timed_execution/defeat_job.as"
 #include "ronin/constants.as"
@@ -60,6 +61,11 @@ void Init(string level_name){
             EndLevel("You failed!");
         }
     }));
+
+    timer.Add(LevelEventJob("reset", function(_params){
+        current_time = 0.0f;
+        return true;
+    }));
 }
 
 void Update(int is_updated){
@@ -77,6 +83,10 @@ void DrawGUI(){
     end_screen.Render();
 }
 
+void ReceiveMessage(string msg){
+    timer.AddLevelEvent(msg);
+}
+
 void RegisterKeys(){
     input_timer.Add(OnInputPressedJob(0, "space", function(){
         SetPaused(false);
@@ -84,7 +94,6 @@ void RegisterKeys(){
             input_timer.DeleteAll();
             end_screen.Reset();
             level.SendMessage("reset");
-            current_time = 0.0f;
             timer.Add(DelayedJob(1.0f, function(){
                 skip_jobs = false;
             }));
