@@ -63,7 +63,13 @@ void Init(string level_name){
     }));
 
     timer.Add(LevelEventJob("reset", function(_params){
+        input_timer.DeleteAll();
+        end_screen.Reset();
         current_time = 0.0f;
+
+        timer.Add(DelayedJob(1.0f, function(){
+            skip_jobs = false;
+        }));
         return true;
     }));
 }
@@ -91,12 +97,7 @@ void RegisterKeys(){
     input_timer.Add(OnInputPressedJob(0, "space", function(){
         SetPaused(false);
         timer.Add(AfterInitJob(function(){
-            input_timer.DeleteAll();
-            end_screen.Reset();
             level.SendMessage("reset");
-            timer.Add(DelayedJob(1.0f, function(){
-                skip_jobs = false;
-            }));
         }));
         return false;
     }));
