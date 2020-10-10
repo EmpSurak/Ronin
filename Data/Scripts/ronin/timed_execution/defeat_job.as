@@ -52,6 +52,6 @@ class DefeatJob : BasicJobInterface {
     }
 
     bool IsRepeating(){
-        return true;
+        return false;
     }
 }

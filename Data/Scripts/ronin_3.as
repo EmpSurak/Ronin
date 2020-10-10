@@ -5,24 +5,18 @@
 #include "timed_execution/level_event_job.as"
 #include "ronin/timed_execution/victory_job.as"
 #include "ronin/timed_execution/defeat_job.as"
+#include "ronin/timed_execution/debug_line_job.as"
 #include "ronin/constants.as"
 #include "ronin/end_screen.as"
 
 TimedExecution timer;
-TimedExecution input_timer;
 EndScreen end_screen;
 
-bool skip_jobs = false;
 float current_time = 0.0f;
 const vec3 _line_offset(0.0f, 0.3f, 0.0f);
 
 void Init(string level_name){
     timer.Add(VictoryJob(function(){
-        if(skip_jobs){
-            return;
-        }
-        skip_jobs = true;
-
         EndLevel("You did it, boss!", 5.0f);
     }));
 
@@ -30,21 +24,18 @@ void Init(string level_name){
         int player_id = FindPlayerID();
         MovementObject@ player_char = ReadCharacterID(player_id);
 
-        if(!_char.controlled){
-            if(distance(player_char.position, _char.position) > 2.0f){
-                DebugDrawLine(
-                    player_char.rigged_object().skeleton().GetCenterOfMass() + _line_offset,
-                    _char.rigged_object().skeleton().GetCenterOfMass() + _line_offset,
-                    vec3(1.0f),
-                    _delete_on_update
-                );
+        timer.Add(DebugLineJob(player_id, _char.GetID(), function(_player, _enemy){
+            if(distance(_player.position, _enemy.position) < 2.0f){
+                return;
             }
-        }
 
-        if(skip_jobs){
-            return;
-        }
-        skip_jobs = true;
+            DebugDrawLine(
+                _player.rigged_object().skeleton().GetCenterOfMass() + _line_offset,
+                _enemy.rigged_object().skeleton().GetCenterOfMass() + _line_offset,
+                vec3(1.0f),
+                _delete_on_update
+            );
+        }));
 
         if(player_char.GetIntVar("knocked_out") != _awake){
             EndLevel("You failed, you are dead!");
@@ -63,21 +54,20 @@ void Init(string level_name){
     }));
 
     timer.Add(LevelEventJob("reset", function(_params){
-        input_timer.DeleteAll();
+        timer.DeleteAll();
         end_screen.Reset();
         current_time = 0.0f;
 
         timer.Add(DelayedJob(1.0f, function(){
-            skip_jobs = false;
+            Init("");
         }));
-        return true;
+        return false;
     }));
 }
 
-void Update(int is_updated){
+void Update(int is_paused){
     current_time += time_step;
     timer.Update();
-    input_timer.Update();
     end_screen.Update();
 }
 
@@ -94,7 +84,7 @@ void ReceiveMessage(string msg){
 }
 
 void RegisterKeys(){
-    input_timer.Add(OnInputPressedJob(0, "space", function(){
+    timer.Add(OnInputPressedJob(0, "space", function(){
         SetPaused(false);
         timer.Add(AfterInitJob(function(){
             level.SendMessage("reset");
@@ -102,7 +92,7 @@ void RegisterKeys(){
         return false;
     }));
 
-    input_timer.Add(OnInputPressedJob(0, "esc", function(){
+    timer.Add(OnInputPressedJob(0, "esc", function(){
         level.SendMessage("go_to_main_menu");
         return false;
     }));

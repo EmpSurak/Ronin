@@ -20,7 +20,7 @@ class VictoryJob : BasicJobInterface {
     }
 
     bool IsRepeating(){
-        return true;
+        return false;
     }
 
     bool NotAllEnemiesAreDead(){
