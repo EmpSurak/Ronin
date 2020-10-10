@@ -19,10 +19,10 @@ class DebugLineJob : BasicJobInterface {
         if(!MovementObjectExists(player_id) || !MovementObjectExists(enemy_id)){
             return;
         }
-        MovementObject @player = ReadCharacterID(player_id);
-        MovementObject @enemy = ReadCharacterID(enemy_id);
+        MovementObject @player_char = ReadCharacterID(player_id);
+        MovementObject @enemy_char = ReadCharacterID(enemy_id);
 
-        callback(player, enemy);
+        callback(player_char, enemy_char);
     }
 
     bool IsExpired(){

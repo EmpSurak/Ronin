@@ -20,18 +20,18 @@ void Init(string level_name){
         EndLevel("You did it, boss!", 5.0f);
     }));
 
-    timer.Add(DefeatJob(function(_char){
+    timer.Add(DefeatJob(function(_enemy_char){
         int player_id = FindPlayerID();
         MovementObject@ player_char = ReadCharacterID(player_id);
 
-        timer.Add(DebugLineJob(player_id, _char.GetID(), function(_player, _enemy){
-            if(distance(_player.position, _enemy.position) < 2.0f){
+        timer.Add(DebugLineJob(player_id, _enemy_char.GetID(), function(_player_char, _enemy_char){
+            if(distance(_player_char.position, _enemy_char.position) < 2.0f){
                 return;
             }
 
             DebugDrawLine(
-                _player.rigged_object().skeleton().GetCenterOfMass() + _line_offset,
-                _enemy.rigged_object().skeleton().GetCenterOfMass() + _line_offset,
+                _player_char.rigged_object().skeleton().GetCenterOfMass() + _line_offset,
+                _enemy_char.rigged_object().skeleton().GetCenterOfMass() + _line_offset,
                 vec3(1.0f),
                 _delete_on_update
             );
@@ -39,8 +39,8 @@ void Init(string level_name){
 
         if(player_char.GetIntVar("knocked_out") != _awake){
             EndLevel("You failed, you are dead!");
-        }else if(_char.GetIntVar("goal") == _investigate){
-            switch(_char.GetIntVar("sub_goal")){
+        }else if(_enemy_char.GetIntVar("goal") == _investigate){
+            switch(_enemy_char.GetIntVar("sub_goal")){
                 case _investigate_body:
                     EndLevel("You failed, body was found!");
                     break;
