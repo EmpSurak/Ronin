@@ -38,6 +38,7 @@ class EndScreen : AHGUI::GUI {
             case agsEndScreen:{
                 ShowEndScreenUI();
             }
+            break;
         }
     }
 
