@@ -53,7 +53,7 @@ void Init(string level_name){
         }
     }));
 
-    timer.Add(LevelEventJob("reset", function(_params){
+    timer.Add(LevelEventJob("post_reset", function(_params){
         timer.DeleteAll();
         end_screen.Reset();
         current_time = 0.0f;
