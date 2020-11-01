@@ -5,7 +5,7 @@
 <Shader>post</Shader>
 <Shadows>true</Shadows>
 <LoadingScreen>
-    <Image>Data/Images/rabbotix_reloaded/mod-full.jpg</Image>
+    <Image></Image>
 </LoadingScreen>
 <OutOfDate NavMesh="true" NavMeshParamHash="-1674835251" />
 <AmbientSounds />
