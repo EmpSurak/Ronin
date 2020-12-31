@@ -57,6 +57,7 @@ void Init(string level_name){
         timer.DeleteAll();
         end_screen.Reset();
         current_time = 0.0f;
+        level.SendMessage("tgr_reset_progress");
 
         timer.Add(DelayedJob(1.0f, function(){
             Init("");
